@@ -10,7 +10,7 @@ const ApplicationLayout = () => {
 
   useEffect(() => {
     if (!userId) {
-      toast.warn("You need to be logged in to access this page");
+      toast.error("You need to be logged in to access this page");
       navigate("/")
     }
   }, [userId]);

@@ -7,6 +7,7 @@ import {
   Landing,
   UserProfilePage,
   FileDownload,
+  Aboutus
 } from "./pages";
 import { ToastContainer } from "react-toastify";
 
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: "/download",
         element: <FileDownload />
+      },
+      {
+        path: "/Aboutus",
+        element: <Aboutus/>,
       }
     ],
   },
