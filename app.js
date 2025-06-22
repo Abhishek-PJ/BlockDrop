@@ -18,25 +18,24 @@ app.use(xss());
 
 const sendEmailMailjet = require("./controllers/sendEmail");
 
+// ✅ Trust Render's proxy (fixes rate limiting issue)
+app.set('trust proxy', 1);
 
-
+// ✅ Rate limiter
 const limiter = rateLimit({
 	windowMs: 15 * 60 * 1000,
 	limit: 100,
 	standardHeaders: 'draft-7',
 	legacyHeaders: false,
-})
+});
 
 app.use(nosqlSanitizer());
-
-app.use(limiter)
-
+app.use(limiter);
 
 app.use(cors({
   exposedHeaders: ['Content-Disposition']
 }));
 app.use(fileUpload());
-
 
 app.post("/", express.json(), async (req, res) => {
 
@@ -51,12 +50,16 @@ app.post("/", express.json(), async (req, res) => {
 
   const filename = Date.now() + "_" + file.name;
   const uploadPath = __dirname + "/uploads/" + filename;
+
   try {
     await file.mv(uploadPath);
 
     const extension = path.extname(originalName);
+
     const fileId = uuidv4();
-    const downloadLink = `http://localhost:4000/download/${fileId}`;
+
+    // ✅ Dynamic download link (works in local and Render)
+    const downloadLink = `${req.protocol}://${req.get('host')}/download/${fileId}`;
 
     const newFile = new File({
       fileName: filename,
@@ -68,35 +71,29 @@ app.post("/", express.json(), async (req, res) => {
     });
     await newFile.save();
 
-    
     if (receiverEmail) {
       try {
         await sendEmailMailjet(receiverEmail, fileId);
       } catch (error) {
         console.log("Error sending email:", error);
-
         return res.status(500).json({ msg: "Error sending email", error: error.message });
       }
     }
-    
 
-    res
-      .status(200)
-      .json({ msg: "File uploaded successfully", link: downloadLink });
+    res.status(200).json({ msg: "File uploaded successfully", link: downloadLink });
   } catch (err) {
-    res
-      .status(500)
-      .send({ msg: "Error while uploading file", error: err.message });
+    res.status(500).send({ msg: "Error while uploading file", error: err.message });
   }
 });
 
-
 app.get("/download/:id", async (req, res) => {
   try {
-    const file = await File.findOne({
-      downloadLink: `http://localhost:4000/download/${req.params.id}`,
-    });
+    // ✅ Dynamic download link matching the one saved earlier
+    const downloadLink = `${req.protocol}://${req.get('host')}/download/${req.params.id}`;
 
+    const file = await File.findOne({
+      downloadLink: downloadLink,
+    });
 
     const password = req.headers['password'];
 
@@ -111,14 +108,13 @@ app.get("/download/:id", async (req, res) => {
     );
     res.download(file.path, filename, async (err) => {
       if (!err) {
-
         await File.deleteOne({ _id: file._id });
 
         fs.unlink(file.path, (unlinkErr) => {
           if (unlinkErr) {
-            console.error("Greška prilikom brisanja fajla:", unlinkErr);
+            console.error("Error deleting file:", unlinkErr);
           } else {
-            console.log("Fajl uspešno obrisan nakon preuzimanja.");
+            console.log("File successfully deleted after download.");
           }
         });
       }
@@ -129,18 +125,17 @@ app.get("/download/:id", async (req, res) => {
 });
 
 app.post("/send", express.json(), async (req, res) => {
-
   const { receiverEmail, fileID, senderName } = req.query;
   try {
     await sendEmailMailjet(receiverEmail, fileID, senderName);
     res.status(200).json({ msg: "Email sent successfully" });
   } catch (error) {
-    console.error("Greška prilikom slanja e-maila:", error);
+    console.error("Error sending email:", error);
     res.status(500).json({ error: error.message });
   }
 });
 
-
+// ✅ Correct Render port setup
 const port = process.env.PORT || 4000;
 
 const start = async () => {
