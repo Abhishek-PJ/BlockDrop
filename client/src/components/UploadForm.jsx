@@ -164,7 +164,7 @@ const UploadForm = ({ progress }) => {
       formData.append("receiverEmail", receiverEmail);
       formData.append("password", hashedPassword);
 
-      await axios.post("http://localhost:4000", formData, {
+      await axios.post(`${process.env.REACT_APP_API_URL}`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
