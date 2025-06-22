@@ -136,7 +136,7 @@ app.post("/send", express.json(), async (req, res) => {
 });
 
 // ✅ Correct Render port setup
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 3000;
 
 const start = async () => {
   try {
@@ -150,3 +150,4 @@ const start = async () => {
 };
 
 start();
+
