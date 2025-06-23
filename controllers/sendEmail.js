@@ -1,4 +1,3 @@
-const nodemailer = require("nodemailer");
 const sgMail = require('@sendgrid/mail')
 const Mailjet = require('node-mailjet');
 var SibApiV3Sdk = require('sib-api-v3-sdk');
@@ -14,30 +13,6 @@ const mailjet = Mailjet.apiConnect(
     } 
 );
 
-// const sendEmailEthereal = async (req, res) => {
-//     let testAccount = await nodemailer.createTestAccount();
-
-//     const transporter = nodemailer.createTransport({
-//         host: 'smtp.ethereal.email',
-//         port: 587,
-//         auth: {
-//             user: 'jamar.hodkiewicz61@ethereal.email',
-//             pass: 'vWjxnQ9QryVBm7GtJD'
-//         },
-//         tls: {
-//             rejectUnauthorized: false
-//         }
-//     });
-
-//     let info = await transporter.sendMail({
-//         from: '"Abhishek" <abhishekn.mca24@rvce.edu.in>',
-//         to: 'jamar.hodkiewicz61@ethereal.email',
-//         subject: 'Hello',
-//         html: '<h2>Sending Emails With Node.js</h2>'
-//     });
-
-//     res.json(info);
-// }
 
 const sendEmailMailjet = async (receiverEmail, fileID, senderName = "Encrypt Share") => {
     const mailjet = Mailjet.apiConnect(
