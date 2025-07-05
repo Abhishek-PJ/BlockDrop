@@ -34,19 +34,21 @@ app.use(limiter);
 
 const allowedOrigins = [
   'http://localhost:5173',
-  'https://encrypt-share.vercel.app'
+  'https://encrypt-share.vercel.app',
+  /^https:\/\/encrypt-share.*\.vercel\.app$/   // ← Regex for all Vercel preview domains
 ];
+
 
 app.use(cors({
   origin: function (origin, callback) {
-    console.log("Request Origin:", origin); // ✅ for debugging
-    if (!origin) return callback(null, true); // allow non-browser clients
-    if (allowedOrigins.includes(origin)) {
-      return callback(null, true);
-    } else {
-      return callback(new Error('Not allowed by CORS'));
-    }
-  },
+  console.log("Request Origin:", origin);
+  if (!origin) return callback(null, true);
+  const isAllowed = allowedOrigins.some((o) =>
+    typeof o === "string" ? o === origin : o.test(origin)
+  );
+  if (isAllowed) return callback(null, true);
+  return callback(new Error("Not allowed by CORS"));
+},
   credentials: true,
   exposedHeaders: ['Content-Disposition']
 }));
