@@ -34,13 +34,13 @@ app.use(limiter);
 
 const allowedOrigins = [
   'http://localhost:5173',
-  'https://encrypt-share.vercel.app/' // 🔁 Replace with your actual Vercel frontend URL
+  'https://encrypt-share.vercel.app'
 ];
 
 app.use(cors({
   origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps or curl)
-    if (!origin) return callback(null, true);
+    console.log("Request Origin:", origin); // ✅ for debugging
+    if (!origin) return callback(null, true); // allow non-browser clients
     if (allowedOrigins.includes(origin)) {
       return callback(null, true);
     } else {
@@ -50,6 +50,7 @@ app.use(cors({
   credentials: true,
   exposedHeaders: ['Content-Disposition']
 }));
+
 
 
 app.use(fileUpload());
