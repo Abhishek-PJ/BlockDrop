@@ -1,9 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom"; 
 
-
-
-
 const Banner = () => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -165,7 +162,7 @@ const Banner = () => {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes float {
           0%, 100% { transform: translateY(0px); }
           50% { transform: translateY(-8px); }

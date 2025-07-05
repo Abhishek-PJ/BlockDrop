@@ -30,8 +30,8 @@ const FileDownload = () => {
       const hashedPassword = await hashPassword(password);
 
       const response = await axios.get(
-        `http://localhost:4000/download/${fileId}`,
-        { 
+        `${import.meta.env.VITE_API_URL}/download/${fileId}`,
+        {
           responseType: "blob",
           headers: {
             'Password': hashedPassword
@@ -66,8 +66,8 @@ const FileDownload = () => {
       setFileId("");
       toast.success("File successfully downloaded and deleted from the server");
     } catch (error) {
-      console.error("Greška prilikom preuzimanja ili dešifrovanja:", error);
-      toast.error("Wrong File ID or password");
+      console.error("Error occurred while downloading or decrypting:403 error", error);
+      toast.error("File deleted from server");
     } finally {
       setIsLoading(false);
     }
