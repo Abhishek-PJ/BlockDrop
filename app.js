@@ -32,9 +32,26 @@ const limiter = rateLimit({
 app.use(nosqlSanitizer());
 app.use(limiter);
 
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://encrypt-share.vercel.app/' // 🔁 Replace with your actual Vercel frontend URL
+];
+
 app.use(cors({
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
   exposedHeaders: ['Content-Disposition']
 }));
+
+
 app.use(fileUpload());
 
 app.post("/", express.json(), async (req, res) => {
