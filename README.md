@@ -38,7 +38,7 @@ To get a local copy up and running, follow these simple steps.
 
 1. Open your terminal of choice and clone the repository:
 ```
-git clone https://github.com/Kuzma02/Secured-File-Share
+git clone https://github.com/Abhishek-PJ/Encrypt-Share
 ```
 
 2. Enter your environment variables in .env on the server
