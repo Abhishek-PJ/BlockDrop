@@ -33,7 +33,6 @@ To get a local copy up and running, follow these simple steps.
 
 # Step by step video instructions for setting up and running the app
 
-[https://www.youtube.com/watch?v=fAsS6YrkIko](https://www.youtube.com/watch?v=fAsS6YrkIko)
 
 # Installation
 
