@@ -33,13 +33,12 @@ To get a local copy up and running, follow these simple steps.
 
 # Step by step video instructions for setting up and running the app
 
-[https://www.youtube.com/watch?v=fAsS6YrkIko](https://www.youtube.com/watch?v=fAsS6YrkIko)
 
 # Installation
 
 1. Open your terminal of choice and clone the repository:
 ```
-git clone https://github.com/Kuzma02/Secured-File-Share
+git clone https://github.com/Abhishek-PJ/Encrypt-Share
 ```
 
 2. Enter your environment variables in .env on the server
