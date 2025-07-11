@@ -19,14 +19,20 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(xss());
 
-app.set('trust proxy', 1); // Trust Render proxy
+app.set('trust proxy', true); // Trust Render proxy
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   limit: 100,
   standardHeaders: 'draft-7',
   legacyHeaders: false,
+  keyGenerator: (req) => req.ip, // Use correct IP from proxy
+  handler: (req, res) => {
+    console.warn(`🚫 Too many requests from ${req.ip}`);
+    res.status(429).json({ msg: "Too many requests — slow down." });
+  }
 });
+
 
 app.use(nosqlSanitizer());
 app.use(limiter);
@@ -166,6 +172,11 @@ app.post("/send", express.json(), async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+
+app.get("/ping", (req, res) => {
+  res.status(200).send("✅ Backend is alive");
+});
+
 
 // ✅ Start Server
 const port = process.env.PORT || 3000;
