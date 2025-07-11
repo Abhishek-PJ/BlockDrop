@@ -16,7 +16,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <ClerkProvider
       publishableKey={PUBLISHABLE_KEY}
       options={{
-        devBrowser: { sync: false } // ✅ This fixes dev session issues
+        devBrowser: { sync: false } 
       }}
     >
       <App />
