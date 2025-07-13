@@ -36,11 +36,11 @@ const sendEmailMailjet = async (
             <div style="font-family: Arial, sans-serif; color: #333;">
               <h2 style="color: #0056b3;">You've Received a Secure File</h2>
               <p>Hello,</p>
-              <p>You have received a secure file from <strong>${senderName}</strong> using <b>Encrypt-Share</b>.</p>
+              <p>You have received a secure file from <strong>${senderName}</strong>.</p>
               <p><strong>File ID:</strong> <span style="font-size: 16px; color: #111;">${fileID}</span></p>
               <p>You can download the file from the following link:</p>
               <p>
-                <a href="https://encrypt-share.vercel.app/" target="_blank" style="color: #007bff;">
+                <a href="https://encrypt-share.vercel.app/download" target="_blank" style="color: #007bff;">
                   Visit Secure Download Page
                 </a>
               </p>

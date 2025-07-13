@@ -21,11 +21,11 @@ const Header = () => {
           to="/"
           className="flex items-center space-x-3 rtl:space-x-reverse group"
         >
-          <img 
-            src={Logo} 
-            width={120} 
-            height={160} 
-            alt="EncryptShare Logo" 
+          <img
+            src={Logo}
+            width={100}
+            height={120}
+            alt="EncryptShare Logo"
             className="transition-transform duration-300 group-hover:scale-105"
           />
         </Link>
@@ -97,6 +97,25 @@ const Header = () => {
                 File Download
               </NavLink>
             </li>
+
+            <SignedIn>
+              <li>
+                <NavLink
+                  to="/file-history"
+                  className={({ isActive }) =>
+                    `relative py-1.5 px-1 text-base font-medium transition-all duration-300 ${
+                      isActive
+                        ? "text-blue-600 dark:text-blue-400"
+                        : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                    } after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gradient-to-r after:from-blue-600 after:to-purple-600 after:transform after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100 ${
+                      isActive ? "after:scale-x-100" : ""
+                    }`
+                  }
+                >
+                  File History
+                </NavLink>
+              </li>
+            </SignedIn>
           </ul>
         </div>
 
@@ -112,7 +131,7 @@ const Header = () => {
               </SignUpButton>
             </div>
           </SignedOut>
-          
+
           <SignedIn>
             <div className="hidden md:flex items-center space-x-2">
               <Link
@@ -123,12 +142,13 @@ const Header = () => {
                 <span>Go To App</span>
               </Link>
               <div className="scale-100">
-                <UserButton 
-                  afterSignOutUrl="/" 
+                <UserButton
+                  afterSignOutUrl="/"
                   appearance={{
                     elements: {
-                      avatarBox: "w-8 h-8 rounded-full ring-2 ring-blue-500 ring-offset-2 hover:ring-blue-600 transition-all duration-300"
-                    }
+                      avatarBox:
+                        "w-8 h-8 rounded-full ring-2 ring-blue-500 ring-offset-2 hover:ring-blue-600 transition-all duration-300",
+                    },
                   }}
                 />
               </div>
@@ -143,16 +163,34 @@ const Header = () => {
           >
             <span className="sr-only">Open main menu</span>
             <div className="w-5 h-5 flex flex-col justify-center items-center">
-              <span className={`bg-current block transition-all duration-300 ease-out h-0.5 w-5 rounded-sm ${isMenuOpen ? 'rotate-45 translate-y-1' : '-translate-y-0.5'}`}></span>
-              <span className={`bg-current block transition-all duration-300 ease-out h-0.5 w-5 rounded-sm my-0.5 ${isMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
-              <span className={`bg-current block transition-all duration-300 ease-out h-0.5 w-5 rounded-sm ${isMenuOpen ? '-rotate-45 -translate-y-1' : 'translate-y-0.5'}`}></span>
+              <span
+                className={`bg-current block transition-all duration-300 ease-out h-0.5 w-5 rounded-sm ${
+                  isMenuOpen ? "rotate-45 translate-y-1" : "-translate-y-0.5"
+                }`}
+              ></span>
+              <span
+                className={`bg-current block transition-all duration-300 ease-out h-0.5 w-5 rounded-sm my-0.5 ${
+                  isMenuOpen ? "opacity-0" : "opacity-100"
+                }`}
+              ></span>
+              <span
+                className={`bg-current block transition-all duration-300 ease-out h-0.5 w-5 rounded-sm ${
+                  isMenuOpen ? "-rotate-45 -translate-y-1" : "translate-y-0.5"
+                }`}
+              ></span>
             </div>
           </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
-      <div className={`md:hidden transition-all duration-300 ease-in-out ${isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+      <div
+        className={`md:hidden transition-all duration-300 ease-in-out ${
+          isMenuOpen
+            ? "max-h-screen opacity-100"
+            : "max-h-0 opacity-0 overflow-hidden"
+        }`}
+      >
         <div className="px-4 py-3 bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
           {/* Mobile Navigation Links */}
           <ul className="space-y-3 mb-4">
@@ -229,7 +267,7 @@ const Header = () => {
               </SignUpButton>
             </div>
           </SignedOut>
-          
+
           <SignedIn>
             <div className="space-y-2">
               <Link
@@ -241,12 +279,13 @@ const Header = () => {
                 <span>Go To App</span>
               </Link>
               <div className="flex justify-center pt-1">
-                <UserButton 
-                  afterSignOutUrl="/" 
+                <UserButton
+                  afterSignOutUrl="/"
                   appearance={{
                     elements: {
-                      avatarBox: "w-10 h-10 rounded-full ring-2 ring-blue-500 ring-offset-2"
-                    }
+                      avatarBox:
+                        "w-10 h-10 rounded-full ring-2 ring-blue-500 ring-offset-2",
+                    },
                   }}
                 />
               </div>

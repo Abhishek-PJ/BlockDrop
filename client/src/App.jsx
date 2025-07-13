@@ -21,21 +21,24 @@ const router = createBrowserRouter([
         element: <Landing />,
       },
       {
-        path: "/app",
+        path: "app",
         element: <ApplicationLayout />,
         children: [
-          { path: "/app", element: <ApplicationPage /> },
-          { path: "/app/file-history", element: <FileHistory /> },
-          { path: "/app/user-profile", element: <UserProfilePage /> }
+          { index: true, element: <ApplicationPage /> },
+          { path: "user-profile", element: <UserProfilePage /> },
         ],
       },
       {
-        path: "/download",
+        path: "download",
         element: <FileDownload />
       },
       {
-        path: "/Aboutus",
-        element: <Aboutus/>,
+        path: "Aboutus",
+        element: <Aboutus />,
+      },
+      {
+        path:"file-history",
+        element: <FileHistory />
       }
     ],
   },
