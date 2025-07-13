@@ -1,70 +1,128 @@
-# Secured File Share
+# 🚀 BlockDrop – Decentralized Secure File Sharing
 
-Secure File Sharing App is a comprehensive solution for secure file exchange, developed using the MERN (MongoDB, Express.js, React, Node.js) stack. This application enables users to share files with end-users with a high level of privacy and security. Featuring end-to-end encryption, password protection, input sanitization, brute force attack protection, protection against NoSQL injections, XSS attacks, and many other security measures, it stands as a modern web application designed to meet the highest standards of data protection.
+**BlockDrop** is a decentralized and secure file sharing platform built with the **MERN stack** and **Ethereum Blockchain**. This app ensures that all uploaded files are encrypted, verified for integrity, and can be validated using blockchain-backed proof — making it ideal for privacy-focused, tamper-proof sharing.
 
-# Application interface
+---
 
-![screencapture-localhost-5173-2024-02-09-09_13_53](https://github.com/Kuzma02/Secured-File-Share/assets/138793624/bd3c6cf8-5a0a-4c96-a7c7-a77052a2674e)
+## 📸 Application Interface
 
-![screencapture-localhost-5173-app-2024-02-09-09_14_12](https://github.com/Kuzma02/Secured-File-Share/assets/138793624/da30c3e4-bf2e-4550-b7b9-2ff8e1acbf77)
+![Home Page](https://drive.google.com/uc?id=16JJWOkLEqkbo5DY0EVoL4OHxUkzUhWmG)
+![Dashboard](https://drive.google.com/uc?id=1vSePIkEX5Hk2g6x2Hghs8dKUFiB0F-Pj)
+![Download Page](https://drive.google.com/uc?id=1vSePIkEX5Hk2g6x2Hghs8dKUFiB0F-Pj)
+![File Upload History](https://drive.google.com/file/d/1IhfHHHmtTsvBa7ajyTfn6eDOkR55G_dh/view?usp=drive_link)
+![FileUpload_BlockChain](https://drive.google.com/file/d/1Ew9H7LOSwwqiPO3YxS4grWoFz5VUEbo0/view?usp=sharing)
 
-![screencapture-localhost-5173-download-2024-02-09-09_14_20](https://github.com/Kuzma02/Secured-File-Share/assets/138793624/3f9a9ffb-1e81-4d33-a7c6-ba1f08d64c82)
 
-# Features
-- End-to-End Encryption: Leveraging strong encryption algorithms to ensure that files are encrypted from the moment they leave the sender's device until they are decrypted by the recipient, guaranteeing that the contents remain confidential and tamper-proof during transit.
-- Password Protection: Adds an additional layer of security by allowing the sender to set a password on a file, which the recipient must enter to download or view the file, thereby preventing unauthorized access.
-- Input Sanitization: Protects the application from various injection attacks by sanitizing user inputs, thus maintaining the integrity and security of the database.
-- Brute Force Attack Protection: Implements sophisticated rate-limiting and account lockout mechanisms to thwart attackers attempting to guess passwords through repeated attempts.
-- Protection Against NoSQL Injections and XSS Attacks: Employs input validation and output encoding strategies to defend against NoSQL injection and Cross-Site Scripting (XSS) vulnerabilities, ensuring the application's resilience against these common web attack vectors.
-- Comprehensive Security Practices: Integrates a variety of security measures, including secure headers, HTTPS enforcement, and content security policies, to mitigate risks and protect against a wide range of vulnerabilities.
 
-# Technologies Used
-- MongoDB: For a flexible, scalable database.
-- Express.js: To handle server-side logic and RESTful API endpoints.
-- React: For building a dynamic and responsive user interface.
-- Node.js: As the runtime environment for executing JavaScript on the server side.
+---
 
-# Getting Started
-To get a local copy up and running, follow these simple steps.
+## 📹 Video Demo
 
-# Prerequisites
+Watch a walkthrough of **BlockDrop** in action:
+
+
+> 🔗 **[Click here to watch the video demo](https://drive.google.com/drive/folders/1KUv6OraBeQ9FdYIn6fzZyj9tI-uR4zbd?usp=drive_link)**
+
+---
+
+## 🔐 Key Features
+
+- **🔒 End-to-End Encryption**  
+  Files are encrypted in the browser before upload and decrypted only by the receiver.
+
+- **🔑 Password Protection**  
+  Optional passwords add a second layer of protection to access shared files.
+
+- **⛓️ Blockchain File Verification**  
+  File hashes are stored on the Ethereum blockchain to allow future verification.
+
+- **🧼 Input Sanitization & XSS/NoSQL Injection Protection**  
+  Protects against common web vulnerabilities and exploits.
+
+- **🛡️ Brute Force & Rate Limit Protection**  
+  Prevents repeated unauthorized access attempts with rate-limiting.
+
+- **📜 Auto-Deleting Files**  
+  Shared files are automatically removed from the server after the first successful download.
+
+---
+
+## ⚙️ Technologies Used
+
+- **Frontend:** React + Vite
+- **Backend:** Express.js + Node.js
+- **Database:** MongoDB
+- **Authentication:** Clerk.dev
+- **Email:** Mailjet API
+- **File Upload:** Multer
+- **Blockchain:** Solidity + Hardhat + Ethers.js
+
+---
+
+## 🧑‍💻 Getting Started
+
+### 🔧 Prerequisites
+
 - Node.js
-- Internet connection
+- MongoDB Atlas account
+- Ethereum testnet (like Hardhat local node or Alchemy RPC)
+- Mailjet & Clerk accounts
 
-# Step by step video instructions for setting up and running the app
+---
 
+## 🛠️ Installation
 
-# Installation
+### 1. Clone the repository
 
-1. Open your terminal of choice and clone the repository:
-```
-git clone https://github.com/Abhishek-PJ/Encrypt-Share
-```
-
-2. Enter your environment variables in .env on the server
-```
-MONGO_URI=your_mongo_uri
-MJ_APIKEY_PUBLIC=your_mail_jet_public_API_key
-MJ_APIKEY_PRIVATE=your_mail_jet_private_API_key
+```bash
+git clone https://github.com/Abhihawkz/BlockDrop.git
+cd BlockDrop
 ```
 
-3. Enter your environment variables in .env on the client
-```
-VITE_CLERK_PUBLISHABLE_KEY=your_clerk_key
+### 2. Backend Environment Variables (`/server/.env`)
+
+```env
+MONGO_URI=your_mongodb_connection
+MJ_APIKEY_PUBLIC=your_mailjet_public_key
+MJ_APIKEY_PRIVATE=your_mailjet_private_key
+BLOCKCHAIN_PROVIDER=http://localhost:8545
+CONTRACT_ADDRESS=your_deployed_contract_address
 ```
 
-4. In the root of the project create folder "uploads"
+### 3. Client Environment Variables (`/client/.env`)
 
-5. Open a terminal in the root of your project and run:
+```env
+VITE_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
 ```
+
+### 4. Start Smart Contract Development (from `/blockchain`)
+
+```bash
 npm install
-node app.js
+npx hardhat node      # Run local blockchain
+npx hardhat run scripts/deploy.js --network localhost
 ```
-6. Open a terminal in the /client of your project and run:
+
+### 5. Start Backend Server
+
+```bash
+cd server
+npm install
+node server.js
 ```
+
+### 6. Start React Frontend
+
+```bash
+cd client
 npm install
 npm run dev
 ```
 
-# Contributing
-Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
+---
+
+## 🤝 Contributing
+
+We welcome contributions from developers of all skill levels! Whether it's fixing bugs, improving UI, or adding new features—feel free to create a pull request.
+
+---
