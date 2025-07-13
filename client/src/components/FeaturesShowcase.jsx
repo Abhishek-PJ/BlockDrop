@@ -234,7 +234,7 @@ const FeaturesShowcase = () => {
               Why Choose{" "}
               <span className="relative">
                 <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
-                  EncryptShare
+                  BlockDrop
                 </span>
                 <div className="absolute -inset-1 bg-gradient-to-r from-blue-400 to-blue-600 rounded-lg blur opacity-25 animate-pulse"></div>
               </span>
@@ -242,7 +242,7 @@ const FeaturesShowcase = () => {
             </h2>
             <p className="text-2xl text-gray-600 dark:text-gray-300 max-sm:text-lg max-w-3xl mx-auto leading-relaxed">
               Enterprise-grade file sharing with client-side encryption and
-              zero-knowledge architecture
+              Block Chain Integration
             </p>
             <div className="mt-8 flex justify-center space-x-4">
               {[...Array(4)].map((_, i) => (

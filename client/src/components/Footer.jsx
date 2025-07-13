@@ -16,13 +16,16 @@ const Footer = () => {
               to="/"
               className="flex items-center mb-4 space-x-3 rtl:space-x-reverse group"
             >
-              <img
+              
+          <h1 className="text-2xl font-bold">BlockDrop</h1>
+
+              {/* <img
                 width={130}
                 height={100}
                 src={Logo}
                 alt="EncryptShare Logo"
                 className="transition-transform duration-300 group-hover:scale-105"
-              />
+              /> */}
             </Link>
             <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4 max-w-md">
               Secure file sharing made simple. Encrypt, share, and download files with confidence. 

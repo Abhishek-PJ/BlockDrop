@@ -137,7 +137,7 @@ const Banner = () => {
           <p className="text-xl font-bold text-gray-600 animate-fade-in-up delay-500">
             Send your files and photos{" "}
             <span className="uppercase text-blue-500 animate-bounce-text">securely</span>{" "}
-            with EncryptShare{" "}
+            with BlockDrop{" "}
             <span className="uppercase text-blue-500 animate-bounce-text delay-200">anytime</span>{" "}
             and{" "}
             <span className="uppercase text-blue-500 animate-bounce-text delay-400">anywhere</span>{" "}

@@ -21,13 +21,14 @@ const Header = () => {
           to="/"
           className="flex items-center space-x-3 rtl:space-x-reverse group"
         >
-          <img
+          {/* <img
             src={Logo}
             width={100}
             height={120}
             alt="EncryptShare Logo"
             className="transition-transform duration-300 group-hover:scale-105"
-          />
+          /> */}
+          <h1 className="text-2xl font-bold">BlockDrop</h1>
         </Link>
 
         {/* Desktop Navigation */}
@@ -62,9 +63,43 @@ const Header = () => {
                   }`
                 }
               >
-                About Us
+                BlockChain Upload
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                to="/verify-file"
+                className={({ isActive }) =>
+                  `relative py-1.5 px-1 text-base font-medium transition-all duration-300 ${
+                    isActive
+                      ? "text-blue-600 dark:text-blue-400"
+                      : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                  } after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gradient-to-r after:from-blue-600 after:to-purple-600 after:transform after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100 ${
+                    isActive ? "after:scale-x-100" : ""
+                  }`
+                }
+              >
+                BlockChain Verify
+              </NavLink>
+            </li>
+            <SignedIn>
+              <li>
+                <NavLink
+                  to="/file-history"
+                  className={({ isActive }) =>
+                    `relative py-1.5 px-1 text-base font-medium transition-all duration-300 ${
+                      isActive
+                        ? "text-blue-600 dark:text-blue-400"
+                        : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                    } after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gradient-to-r after:from-blue-600 after:to-purple-600 after:transform after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100 ${
+                      isActive ? "after:scale-x-100" : ""
+                    }`
+                  }
+                >
+                  BlockChain Logs
+                </NavLink>
+              </li>
+            </SignedIn>
             <li>
               <NavLink
                 to="/app"
@@ -98,24 +133,7 @@ const Header = () => {
               </NavLink>
             </li>
 
-            <SignedIn>
-              <li>
-                <NavLink
-                  to="/file-history"
-                  className={({ isActive }) =>
-                    `relative py-1.5 px-1 text-base font-medium transition-all duration-300 ${
-                      isActive
-                        ? "text-blue-600 dark:text-blue-400"
-                        : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
-                    } after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gradient-to-r after:from-blue-600 after:to-purple-600 after:transform after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100 ${
-                      isActive ? "after:scale-x-100" : ""
-                    }`
-                  }
-                >
-                  File History
-                </NavLink>
-              </li>
-            </SignedIn>
+            
           </ul>
         </div>
 

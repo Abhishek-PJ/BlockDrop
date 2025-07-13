@@ -8,8 +8,9 @@ import {
   UserProfilePage,
   FileDownload,
   Aboutus,
-  Verify
+  VerifyFile, // ✅ good now
 } from "./pages";
+
 import { ToastContainer } from "react-toastify";
 
 const router = createBrowserRouter([
@@ -41,6 +42,11 @@ const router = createBrowserRouter([
         path:"file-history",
         element: <FileHistory />
       }, 
+      { 
+        path: "verify-file",
+        element: <VerifyFile />
+      }
+
     ],
   },
 ]);

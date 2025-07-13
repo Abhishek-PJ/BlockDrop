@@ -270,4 +270,4 @@ const VerifyFile = () => {
   )
 }
 
-export default VerifyFile
+export default VerifyFile;
