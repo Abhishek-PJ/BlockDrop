@@ -9,8 +9,16 @@
 ![Home Page](https://drive.google.com/uc?id=16JJWOkLEqkbo5DY0EVoL4OHxUkzUhWmG)
 ![Dashboard](https://drive.google.com/uc?id=1vSePIkEX5Hk2g6x2Hghs8dKUFiB0F-Pj)
 ![Download Page](https://drive.google.com/uc?id=1vSePIkEX5Hk2g6x2Hghs8dKUFiB0F-Pj)
-![File Upload History](https://drive.google.com/file/d/1IhfHHHmtTsvBa7ajyTfn6eDOkR55G_dh/view?usp=drive_link)
-![FileUpload_BlockChain](https://drive.google.com/file/d/1Ew9H7LOSwwqiPO3YxS4grWoFz5VUEbo0/view?usp=sharing)
+![FileUpload_BlockChain](https://drive.google.com/uc?id=1mXWl8tv79r_AX1QbImmi-_Lf7Q8BT4kL)
+![File Upload History](https://drive.google.com/uc?id=1oGCdbRCTHgN3jCr82Ps_2R-20QXCz17Z)
+![Send Normal](https://drive.google.com/uc?id=1likqe6pP8NMFEimyvGUeQIWyKccA9R-K)
+![Download Page](https://drive.google.com/uc?id=1m3sRVo0nTze8mYFuDF3MKJ398CeOPA2J)
+
+
+
+
+
+
 
 
 
