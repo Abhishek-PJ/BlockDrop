@@ -33,18 +33,32 @@ async function getPreviousHash(address) {
   return events.length > 0 ? events[events.length - 1].args.fileHash : ethers.ZeroHash
 }
 
+
 router.post('/uploadFile', upload.single('file'), async (req, res) => {
   try {
+    console.log('🟢 Upload route hit')
+
     const file = req.file
-    if (!file) return res.status(400).json({ error: 'File is required' })
+    if (!file) {
+      console.log('❌ No file received')
+      return res.status(400).json({ error: 'File is required' })
+    }
+
+    console.log('📁 File received:', file.originalname, file.size)
 
     const fileBuffer = file.buffer
     const fileName = file.originalname
     const fileSize = file.size
-    const fileHash = sha256(fileBuffer)
+
+    const rawHash = sha256(fileBuffer)
+    const fileHash = '0x' + rawHash.replace(/^0x/, '')  // ✅ ensure only one 0x
+    console.log('🔑 File hash:', fileHash)
 
     const isAlreadyUploaded = await contract.isFileRegistered(fileHash)
+    console.log('📦 Already uploaded?', isAlreadyUploaded)
+
     if (isAlreadyUploaded) {
+      console.log('⚠️ File already on chain')
       return res.status(409).json({
         message: "File already exists on the blockchain",
         fileHash
@@ -52,10 +66,15 @@ router.post('/uploadFile', upload.single('file'), async (req, res) => {
     }
 
     const signature = await wallet.signMessage(ethers.getBytes(fileHash))
+    console.log('✍️ Signature:', signature)
+
     const previousHash = await getPreviousHash(wallet.address)
+    console.log('🔗 Previous hash:', previousHash)
 
     const tx = await contract.uploadFile(fileHash, signature, previousHash, fileName, fileSize)
     await tx.wait()
+
+    console.log('✅ TX successful:', tx.hash)
 
     res.json({
       message: "File upload success",
@@ -67,7 +86,9 @@ router.post('/uploadFile', upload.single('file'), async (req, res) => {
       fileSize,
       previousHash
     })
+
   } catch (err) {
+    console.error('❌ Upload failed:', err)
     res.status(500).json({ error: err.message })
   }
 })

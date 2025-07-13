@@ -7,7 +7,8 @@ import {
   Landing,
   UserProfilePage,
   FileDownload,
-  Aboutus
+  Aboutus,
+  Verify
 } from "./pages";
 import { ToastContainer } from "react-toastify";
 
@@ -39,7 +40,7 @@ const router = createBrowserRouter([
       {
         path:"file-history",
         element: <FileHistory />
-      }
+      }, 
     ],
   },
 ]);

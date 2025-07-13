@@ -6,3 +6,4 @@ export { default as FileHistory } from "./FileHistory";
 export { default as UserProfilePage } from "./UserProfilePage";
 export { default as FileDownload } from "./FileDownload";
 export {default as Aboutus} from "./Aboutus"
+export { default as Verify} from "./VerifyFile"
