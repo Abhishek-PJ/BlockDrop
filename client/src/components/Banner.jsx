@@ -131,7 +131,7 @@ const Banner = () => {
         <div className={`flex flex-col gap-y-5 transition-all duration-1000 ease-out delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
           <h1 className="text-5xl font-bold max-lg:text-4xl max-sm:text-3xl text-gray-900 animate-fade-in-up">
             The Only Tool You Need To Send Your Files{" "}
-            <span className="text-blue-500 animate-color-pulse">Securely</span>
+            <span className="text-blue-500 animate-color-pulse">Securely with BlockChain</span>
           </h1>
           
           <p className="text-xl font-bold text-gray-600 animate-fade-in-up delay-500">
@@ -152,7 +152,7 @@ const Banner = () => {
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse delay-300"></div>
-              <span>No file size limits</span>
+              <span>Block Chain Verification</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse delay-500"></div>

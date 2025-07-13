@@ -67,24 +67,25 @@ const FeaturesShowcase = () => {
       color: "from-blue-500 to-cyan-500",
       bgColor: "bg-blue-500",
     },
+   
+      {
+    icon: "⛓️",
+    title: "Blockchain-backed Integrity",
+    description:
+      "Files are securely uploaded with their metadata stored on blockchain, ensuring tamper-proof, verifiable sharing and audit trails.",
+    highlight: "Immutable verification",
+    color: "from-purple-600 to-indigo-600",
+    bgColor: "bg-purple-600",
+  },
     {
-      icon: "🛡️",
-      title: "Strong Password Policy",
-      description:
-        "Enforces minimum 20-character passwords with uppercase requirements, plus SHA-256 hashing for secure storage.",
-      highlight: "20+ char minimum",
-      color: "from-red-500 to-pink-500",
-      bgColor: "bg-red-500",
-    },
-    {
-      icon: "📤",
-      title: "Drag & Drop Upload",
-      description:
-        "Intuitive file upload with drag-and-drop support, visual progress tracking, and 20MB file size limit for optimal performance.",
-      highlight: "20MB max size",
-      color: "from-green-500 to-emerald-500",
-      bgColor: "bg-green-500",
-    },
+    icon: "⏱️",
+    title: "Timed Auto-Deletion",
+    description:
+      "Users can set a custom expiry time for each file, ensuring it gets automatically deleted after the chosen duration.",
+    highlight: "Self-destruct timer",
+    color: "from-yellow-500 to-orange-500",
+    bgColor: "bg-yellow-500",
+  },
     {
       icon: "📧",
       title: "Email-Based Sharing",
