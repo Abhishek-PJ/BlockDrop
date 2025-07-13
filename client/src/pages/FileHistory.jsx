@@ -85,7 +85,7 @@ const FileHistory = () => {
         return "bg-yellow-100 text-yellow-700";
       case "Available":
       default:
-        return "bg-green-100 text-green-700";
+        return "bg-green-100 text-green-800";
     }
   };
 
