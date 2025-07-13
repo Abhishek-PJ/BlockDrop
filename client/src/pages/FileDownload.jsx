@@ -12,7 +12,7 @@ const FileDownload = () => {
 
   const downloadSchema = z.object({
     fileId: z.string().min(5, "File ID field must be valid length and value"),
-    password: z.string().min(20, "Password field must be valid length and value")
+    password: z.string().min(8, "Password field must be valid length and value")
   });
 
   const handleDownload = async () => {
